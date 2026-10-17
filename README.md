@@ -1,5 +1,7 @@
 # 网易云最近任务隐藏（LSPosed）
 
+注意！此模块为chatgpt制作在hyperos4上验证通过
+
 一个最小化 Java / Android Studio 项目：在 `android`（system_server）作用域中 Hook
 `com.android.server.wm.RecentTasks.isVisibleRecentTask(...)`，仅将网易云音乐
 `com.netease.cloudmusic` 的最近任务可见性判定为 `false`。
@@ -40,15 +42,5 @@ APK 预期输出位置：`app/build/outputs/apk/debug/app-debug.apk`。
 ## 兼容性限制
 
 该实现针对 AOSP 风格的 `RecentTasks` 可见性路径。部分 OEM 桌面还会在 Launcher/SystemUI 侧二次过滤任务；如果 HyperOS 使用不同逻辑，可能需要额外适配，不能仅凭 Android 版本推断。
-
-
-## 手机用户：用 GitHub Actions 云端编译
-
-项目已包含 `.github/workflows/build-apk.yml`。上传整个项目到 GitHub 仓库后：
-1. 打开仓库的 **Actions** 标签页。
-2. 选择 **Build LSPosed APK** 工作流。
-3. 点击 **Run workflow**（也可以在推送到 main/master 后自动构建）。
-4. 成功后进入该次运行页面底部的 **Artifacts**，下载 `NetEaseRecentHide-debug-apk`。
-5. 解压 artifact，里面的 `app-debug.apk` 即为调试版 APK。
 
 注意：该流程当前使用 Android SDK 35 编译，目的是验证项目可构建；它并不意味着已针对 Android 17 / HyperOS 的内部实现完成兼容性验证。
