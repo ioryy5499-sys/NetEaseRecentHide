@@ -39,7 +39,7 @@ jobs:
           find . -maxdepth 5 -type f -iname '*.zip' -print
 
           ZIP_FILE="$(find . -maxdepth 5 -type f \
-            -iname 'NetEaseRecentHide-GitHubActions-2.zip' \
+            -iname 'NetEaseRecentHide-StaticScope-system.zip' \
             -print -quit)"
 
           if [ -z "$ZIP_FILE" ]; then
